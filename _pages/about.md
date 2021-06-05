@@ -4,8 +4,5 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
-
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+I'm a Deep Learning Practitioner taught by awesome open source community. 
+Trying my level best to teach Artificial Neurons to adapt to the task that is currently taught to it by using my own Biological Neurons ;)
