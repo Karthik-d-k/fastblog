@@ -147,26 +147,15 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h1"><a href="#collapse-hide">collapse-hide </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#Example-1-:--Answer">Example 1 :- Answer </a></li>
 <li class="toc-entry toc-h4"><a href="#Example-2">Example 2 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#collapse-hide">collapse-hide </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#Example-2-:--Answer">Example 2 :- Answer </a></li>
 <li class="toc-entry toc-h3"><a href="#4.-Slicing,-masking-and-fancy-indexing">4. Slicing, masking and fancy indexing </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h1"><a href="#Computing-Nearest-Neighbors-using-Numpy">Computing Nearest Neighbors using Numpy </a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#create-1000-points-in-3-Dimension">create 1000 points in 3 Dimension </a></li>
-<li class="toc-entry toc-h3"><a href="#Broadcast-to-find-Pair-wise-differences">Broadcast to find Pair-wise differences </a></li>
-<li class="toc-entry toc-h3"><a href="#Aggregate-to-find-Pair-wise-differences">Aggregate to find Pair-wise differences </a></li>
-<li class="toc-entry toc-h3"><a href="#Set-diagonals-to-infinity-to-skip-self-neighbors">Set diagonals to infinity to skip self-neighbors </a></li>
-<li class="toc-entry toc-h3"><a href="#print-the-indices-of-nearest-neighbors">print the indices of nearest neighbors </a></li>
-<li class="toc-entry toc-h3"><a href="#Double-check-with-scikit-learn">Double check with scikit-learn </a></li>
-</ul>
-</li>
+<li class="toc-entry toc-h1"><a href="#Computing-Nearest-Neighbors-using-Numpy">Computing Nearest Neighbors using Numpy </a></li>
 <li class="toc-entry toc-h1"><a href="#Summary">Summary </a></li>
 <li class="toc-entry toc-h1"><a href="#References">References </a></li>
 </ul><!--
@@ -1249,7 +1238,6 @@ Result (3d Array): 256 x 256 x 3</code></pre>
 
 <pre><code>v1 = [0,1,2] with shape 3 x 1
 v2 = [0,1,2] with shape 1 x 3</code></pre>
-<p>i.e, v1 = np.arange(3).reshape(3,1), v2 = np.arange(3)</p>
 
 </div>
 </div>
@@ -1260,10 +1248,10 @@ v2 = [0,1,2] with shape 1 x 3</code></pre>
 <h1 id="collapse-hide">
 <a class="anchor" href="#collapse-hide" aria-hidden="true"><span class="octicon octicon-link"></span></a>collapse-hide<a class="anchor-link" href="#collapse-hide"> </a>
 </h1>
-<h4 id="Example-1-:--Answer">
-<a class="anchor" href="#Example-1-:--Answer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 1 :- Answer<a class="anchor-link" href="#Example-1-:--Answer"> </a>
-</h4>
-<div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">Example</span> <span class="mi">1</span> <span class="p">:</span><span class="o">-</span> <span class="n">Answer</span>
+<span class="o">---------------------</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">v2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">v1</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">v2</span><span class="o">.</span><span class="n">shape</span>
 <span class="o">&gt;</span> <span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
@@ -1317,10 +1305,10 @@ step 2 :- final shapes of v1 and v2 will be equal to [3 x 3], beacuse both axis 
 <h1 id="collapse-hide">
 <a class="anchor" href="#collapse-hide" aria-hidden="true"><span class="octicon octicon-link"></span></a>collapse-hide<a class="anchor-link" href="#collapse-hide"> </a>
 </h1>
-<h4 id="Example-2-:--Answer">
-<a class="anchor" href="#Example-2-:--Answer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 2 :- Answer<a class="anchor-link" href="#Example-2-:--Answer"> </a>
-</h4>
-<div class="highlight"><pre><span></span><span class="n">imgs</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">)</span> <span class="c1">#Create an array of given shape with random floats sampled from a univariate "normal" </span>
+<div class="highlight"><pre><span></span><span class="n">Example</span> <span class="mi">2</span> <span class="p">:</span><span class="o">-</span> <span class="n">Answer</span>
+<span class="o">--------------------</span>
+
+<span class="n">imgs</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">)</span> <span class="c1">#Create an array of given shape with random floats sampled from a univariate "normal" </span>
                                    <span class="c1">#(Gaussian) distribution of mean 0 and variance 1</span>
 <span class="n">imgs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">imgs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>      <span class="c1">#print 4 x 4 values of 1st channel of 1st image </span>
 <span class="o">&gt;</span> <span class="p">((</span><span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
@@ -1786,9 +1774,8 @@ we will implement <code>Nearest Neighbors</code> Algorithm using Numpy and then 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="create-1000-points-in-3-Dimension">
-<a class="anchor" href="#create-1000-points-in-3-Dimension" aria-hidden="true"><span class="octicon octicon-link"></span></a>create 1000 points in 3 Dimension<a class="anchor-link" href="#create-1000-points-in-3-Dimension"> </a>
-</h3>
+<p><strong>create 1000 points in 3 Dimension</strong></p>
+
 </div>
 </div>
 </div>
@@ -1829,9 +1816,8 @@ we will implement <code>Nearest Neighbors</code> Algorithm using Numpy and then 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Broadcast-to-find-Pair-wise-differences">
-<a class="anchor" href="#Broadcast-to-find-Pair-wise-differences" aria-hidden="true"><span class="octicon octicon-link"></span></a>Broadcast to find Pair-wise differences<a class="anchor-link" href="#Broadcast-to-find-Pair-wise-differences"> </a>
-</h3>
+<p><strong>Broadcast to find Pair-wise differences</strong></p>
+
 </div>
 </div>
 </div>
@@ -1872,9 +1858,8 @@ we will implement <code>Nearest Neighbors</code> Algorithm using Numpy and then 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Aggregate-to-find-Pair-wise-differences">
-<a class="anchor" href="#Aggregate-to-find-Pair-wise-differences" aria-hidden="true"><span class="octicon octicon-link"></span></a>Aggregate to find Pair-wise differences<a class="anchor-link" href="#Aggregate-to-find-Pair-wise-differences"> </a>
-</h3>
+<p><strong>Aggregate to find Pair-wise differences</strong></p>
+
 </div>
 </div>
 </div>
@@ -1915,9 +1900,8 @@ we will implement <code>Nearest Neighbors</code> Algorithm using Numpy and then 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Set-diagonals-to-infinity-to-skip-self-neighbors">
-<a class="anchor" href="#Set-diagonals-to-infinity-to-skip-self-neighbors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Set diagonals to infinity to skip self-neighbors<a class="anchor-link" href="#Set-diagonals-to-infinity-to-skip-self-neighbors"> </a>
-</h3>
+<p><strong>Set diagonals to infinity to skip self-neighbors</strong></p>
+
 </div>
 </div>
 </div>
@@ -1942,9 +1926,8 @@ we will implement <code>Nearest Neighbors</code> Algorithm using Numpy and then 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="print-the-indices-of-nearest-neighbors">
-<a class="anchor" href="#print-the-indices-of-nearest-neighbors" aria-hidden="true"><span class="octicon octicon-link"></span></a>print the indices of nearest neighbors<a class="anchor-link" href="#print-the-indices-of-nearest-neighbors"> </a>
-</h3>
+<p><strong>print the indices of nearest neighbors</strong></p>
+
 </div>
 </div>
 </div>
@@ -1985,9 +1968,8 @@ we will implement <code>Nearest Neighbors</code> Algorithm using Numpy and then 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Double-check-with-scikit-learn">
-<a class="anchor" href="#Double-check-with-scikit-learn" aria-hidden="true"><span class="octicon octicon-link"></span></a>Double check with scikit-learn<a class="anchor-link" href="#Double-check-with-scikit-learn"> </a>
-</h3>
+<p><strong>Double check with scikit-learn</strong></p>
+
 </div>
 </div>
 </div>
