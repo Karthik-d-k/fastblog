@@ -209,9 +209,6 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<details class="description">
-      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
-        <p></p>
 <div class="input">
 
 <div class="inner_cell">
@@ -222,6 +219,7 @@ window.onload = wrap_img;
 <span class="c">#---------------------------------------------------#</span>
 <span class="n">JULIA_VERSION</span><span class="o">=</span><span class="s">"1.7.2"</span>
 <span class="n">JULIA_PACKAGES</span><span class="o">=</span><span class="s">"IJulia Plots"</span>
+<span class="n">JULIA_PACKAGES_IF_GPU</span><span class="o">=</span><span class="s">"CUDA"</span>
 <span class="n">JULIA_NUM_THREADS</span><span class="o">=</span><span class="mi">4</span>
 <span class="c">#---------------------------------------------------#</span>
 
@@ -236,6 +234,8 @@ window.onload = wrap_img;
   <span class="n">rm</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">julia</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
 
   <span class="c"># Install Packages</span>
+  <span class="k">if</span> <span class="p">[</span> <span class="s">"</span><span class="si">$COLAB_GPU</span><span class="s">"</span> <span class="o">=</span> <span class="s">"1"</span> <span class="p">];</span> <span class="n">then</span>
+      <span class="n">JULIA_PACKAGES</span><span class="o">=</span><span class="s">"</span><span class="si">$JULIA_PACKAGES</span><span class="s"> </span><span class="si">$JULIA_PACKAGES_IF_GPU</span><span class="s">"</span>
   <span class="n">fi</span>
   <span class="k">for</span> <span class="n">PKG</span> <span class="kp">in</span> <span class="sb">`echo </span><span class="si">$JULIA_PACKAGES</span><span class="sb">`</span><span class="p">;</span> <span class="k">do</span>
     <span class="n">echo</span> <span class="s">"Installing Julia package </span><span class="si">$PKG</span><span class="s">..."</span>
@@ -261,7 +261,6 @@ window.onload = wrap_img;
 </div>
 </div>
 
-    </details>
 </div>
     
 
